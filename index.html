@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CM Jobs Clone - Ryan Lerner</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="/js/main.js" type="module" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="content-container">
+      <header>
+        <div id="header-top">
+          <div id="menu-button">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+          </div>
+          <div id="main-logo-container">
+            <img id="main-logo-small" src="/assets/cm-logo.svg" />
+            <img id="main-logo-large" src="/assets/cm-logo-dot.svg" />
+          </div>
+          <div id="sub-header-container">
+            <div id="sub-header-1">
+              <span>Welcome.</span>
+              <span>Digital is our home.</span>
+            </div>
+            <div id="sub-header-2">
+              <img id="maple-leaf" src="/assets/Maple_Leaf.svg" />
+              <div id="sub-header-2-inner">
+                <span>Canada + The World</span>
+                <span>Since '96</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="header-bottom">
+          <div>
+            <h2>The people make the place.</h2>
+          </div>
+          <div>
+            <p>
+              And some of the most inspired ones out there work here. While
+              keeping company with brands we love, we nurture the most
+              digitally-minded creative folks in the industry—from storytellers
+              and researchers to unicorns whose disciplines have yet to be
+              named.
+            </p>
+            <p>
+              Sound like you? If so, we can't wait to meet you in our offices
+              where collaboration is fostered over equal parts laughter and
+              resolve. And where culture isn’t just spoken about but crafted by
+              real CMers in real time.
+            </p>
+          </div>
+        </div>
+        <div id="image-bar-container">
+          <img class="bar-image" />
+          <img class="bar-image" />
+          <img class="bar-image" />
+          <img class="bar-image" />
+          <img class="bar-image" />
+          <img class="bar-image" />
+          <img class="bar-image" />
+          <img class="bar-image" />
+          <img class="bar-image" />
+          <img class="bar-image" />
+        </div>
+      </header>
+      <main>
+        <section>
+          <div id="job-sort-top">
+            <h3 id="join-us">JOIN US</h3>
+            <select
+              id="job-category-sort"
+              class="dropdown"
+              name="job-category-sort"
+            >
+              <option class="option" value="latest">Sort By Most Recent</option>
+              <option class="option" value="dept">Sort By Department</option>
+            </select>
+          </div>
+          <div id="job-category-container">
+            <!-- Job Categories will be rendered here based on data from JSON file, and ordered based on selected sort type -->
+          </div>
+        </section>
+      </main>
+    </div>
+    <div id="modal-container">
+      <img id="main-logo-modal" src="/assets/cm-logo.svg" />
+      <span id="close-modal">&times;</span>
+      <div id="modal-content">
+        <span id="sub-category"></span>
+        <h3 id="department"></h3>
+        <select id="job-category-sort" class="dropdown" name="location-filter">
+          <option class="option" value="none">Filter by location...</option>
+          <!-- Listed jobs in each category will populate here based on selected department -->
+        </select>
+      </div>
+    </div>
+  </body>
+</html>
