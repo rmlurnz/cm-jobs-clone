@@ -1,5 +1,5 @@
 import { jobHandler } from "./job-handler.js";
-import { modal } from "./modal.js";
+import { modal } from "./job-list-modal.js";
 
 // path to data file that contains jobs
 const JOBS_DATA = "./data/jobs.json";

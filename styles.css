@@ -148,7 +148,7 @@ body {
 
 .dropdown {
   background-color: blue;
-  padding: 10px 10px;
+  padding: 7px 10px;
   color: white;
   font-weight: bold;
   font-size: 1.1em;
@@ -228,10 +228,9 @@ body {
   text-align: center;
   background-color: #fefefe;
   margin: 20px 20px;
-  padding: 20px;
 }
 
-/* The Close Button */
+/* Close Button */
 #close-modal {
   position: absolute;
   top: 30px;
@@ -267,6 +266,30 @@ body {
   letter-spacing: 0.05em;
   font-family: "Bebas Neue", sans-serif;
   margin: 0 0 35px 0;
+}
+
+#location-jobs-container {
+  margin-top: 70px;
+}
+
+#location-jobs-list {
+  list-style-type: none;
+  margin: 0 0 10px 0;
+}
+
+#location-jobs-list li {
+  height: 70px;
+  background-color: var(--cm-job-bg);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+#location-jobs-list li b {
+  display: inline-block;
 }
 
 @media screen and (min-width: 768px) {
