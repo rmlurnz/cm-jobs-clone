@@ -1,22 +1,53 @@
 import { pubsub } from "./pubsub.js";
 
 export const jobHandler = {
-  data: null,
+  container: null,
   categories: null,
-  init: (job_data) => {
-    jobHandler.data = job_data;
+  sort_order: "latest",
+  init: (job_data, container) => {
+    jobHandler.container = container;
 
-    let categories = jobHandler.data.jobs.reduce((categories, job) => {
+    // default sort jobs by most recent
+    let by_recent = job_data.jobs.toSorted((a, b) => {
+      if (a.created > b.created) return -1;
+      if (a.created < b.created) return 1;
+      return 0;
+    });
+
+    // create categories from "most recent" sorted data
+    let sorted_cats = by_recent.reduce((dept_jobs, job) => {
       const department = job.department;
-      if (categories[department] == null) categories[department] = [];
-      categories[department].push(job);
-      return categories;
+      if (dept_jobs[department] == null) dept_jobs[department] = [];
+      dept_jobs[department].push(job);
+      return dept_jobs;
     }, {});
 
-    jobHandler.categories = categories;
+    jobHandler.categories = sorted_cats;
+
+    document
+      .getElementById("job-category-sort")
+      .addEventListener("change", (e) => {
+        jobHandler.sort_order = e.target.value;
+        jobHandler.renderCategories();
+      });
+
+    jobHandler.renderCategories();
   },
-  renderCategories: (container) => {
-    for (const [key, value] of Object.entries(jobHandler.categories)) {
+  renderCategories: () => {
+    // reset div contents
+    jobHandler.container.innerHTML = "";
+
+    let sorted;
+
+    if (jobHandler.sort_order == "latest") {
+      // uses default "most recent" sort
+      sorted = Object.keys(jobHandler.categories);
+    } else {
+      // sort categories alphabetically
+      sorted = Object.keys(jobHandler.categories).sort();
+    }
+
+    sorted.forEach((key) => {
       let div = document.createElement("div");
 
       // set sub-category
@@ -50,7 +81,7 @@ export const jobHandler = {
         pubsub.publish("categoryClicked", jobHandler.categories[key]);
       });
 
-      container.appendChild(div);
-    }
+      jobHandler.container.appendChild(div);
+    });
   },
 };

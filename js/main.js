@@ -18,8 +18,8 @@ fetch(JOBS_DATA)
   })
   .then((data) => {
     modal.init(modalElement);
-    jobHandler.init(data);
-    jobHandler.renderCategories(jobCategoryElement);
+    jobHandler.init(data, jobCategoryElement);
+    jobHandler.renderCategories();
   })
   .catch((error) => {
     console.log(error);
