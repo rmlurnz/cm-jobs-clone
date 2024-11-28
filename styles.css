@@ -12,7 +12,6 @@
 }
 
 body {
-  overflow-x: hidden;
   background-color: var(--cm-background-white);
 }
 
@@ -120,7 +119,7 @@ body {
   margin-left: 20px;
   height: 370px;
   display: flex;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .bar-image {
